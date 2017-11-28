@@ -1,34 +1,12 @@
 // @flow
 
 import React, { Component } from 'react';
-import superagent from 'superagent';
-
+import type { Book } from 'types';
 import './App.css';
 
-type Author = {
-  name: string,
-  slug: string,
+type Props = {
+  fetchBooks: () => Promise<Array<Book>>,
 };
-type Book = {
-  authors: Array<Author>,
-  document: string,
-  id: string,
-  image: string,
-  largeImage: string,
-  mediumImage: string,
-  shortTitle: string,
-  slug: string,
-  title: string,
-};
-type Module = { type: string, books?: Array<Book> };
-type Response = {
-  id: string,
-  modules: Array<Module>,
-  slug: string,
-  title: string,
-};
-
-type Props = {};
 type State = {
   books: Array<Book>,
 };
@@ -41,15 +19,10 @@ class App extends Component<Props, State> {
   }
 
   componentDidMount() {
-    superagent.get('https://api.glose.com/v1/booklists/free-books').then(
-      (response: { body: Response }) => {
-        const books = response.body.modules[1].books;
-        this.setState({ books: books || [] });
-      },
-      error => {
-        console.warn(error);
-      }
-    );
+    const { fetchBooks } = this.props;
+    return fetchBooks().then((books: Array<Book>) => {
+      this.setState({ books });
+    });
   }
 
   render() {
