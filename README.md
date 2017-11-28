@@ -15,3 +15,5 @@ To run the project locally:
 * `yarn start` (or `npm run start`)
 
 You can check the code coverage with `yarn coverage`.
+
+To create a production build, use `yarn build`.
