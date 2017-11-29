@@ -26,7 +26,9 @@ class Book extends Component<Props> {
     const { book } = this.props;
     return (
       <article className="Book">
-        <img className="Book__Image" src={book.image} alt={book.title} />
+        <div className="Book__ImageFrame">
+          <img className="Book__Image" src={book.image} alt={book.title} />
+        </div>
         <header>
           <h2 className="Book__Title" title={book.title}>
             {book.title}
