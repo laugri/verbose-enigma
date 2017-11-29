@@ -8,5 +8,14 @@
 
   &__Title {
     font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+  }
+
+  &__Author {
+    font-size: 13px;
+    margin: 0;
   }
 }
