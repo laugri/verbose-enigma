@@ -30,6 +30,9 @@ class App extends Component<Props, State> {
     const { books } = this.state;
     return (
       <div className="App">
+        <header className="Hero">
+          <h1 className="Hero__Title">Free books</h1>
+        </header>
         <section className="Shelf">
           {books.map(book => <Book key={book.id} book={book} />)}
         </section>
