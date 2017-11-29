@@ -1,14 +1,15 @@
 // @flow
 
 import React, { Component } from 'react';
-import type { Book } from 'types';
+import type { Book as BookType } from 'types';
+import Book from 'components/book/book';
 import './App.css';
 
 type Props = {
-  fetchBooks: () => Promise<Array<Book>>,
+  fetchBooks: () => Promise<Array<BookType>>,
 };
 type State = {
-  books: Array<Book>,
+  books: Array<BookType>,
 };
 
 class App extends Component<Props, State> {
@@ -20,8 +21,8 @@ class App extends Component<Props, State> {
 
   componentDidMount() {
     const { fetchBooks } = this.props;
-    return fetchBooks().then((books: Array<Book>) => {
-      this.setState({ books });
+    return fetchBooks().then((books: Array<BookType>) => {
+      this.setState({ books: books || [] });
     });
   }
 
@@ -29,7 +30,9 @@ class App extends Component<Props, State> {
     const { books } = this.state;
     return (
       <div className="App">
-        <ul>{books.map(book => <li key={book.slug}>{book.title}</li>)}</ul>
+        <section className="Shelf">
+          {books.map(book => <Book key={book.id} book={book} />)}
+        </section>
       </div>
     );
   }
