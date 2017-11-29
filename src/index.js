@@ -9,6 +9,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
   <App fetchBooks={fetchBooks} />,
+  // $ExpectError
   document.getElementById('root')
 );
 registerServiceWorker();
