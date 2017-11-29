@@ -16,3 +16,8 @@ button {
   font-family: inherit;
   font-size: inherit;
 }
+
+h1,
+h2 {
+  font-family: $title-font-stack;
+}

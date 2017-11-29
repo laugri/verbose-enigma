@@ -11,7 +11,14 @@ type Props = {
 class Book extends Component<Props> {
   render() {
     const { book } = this.props;
-    return <article className="Book">{book.title}</article>;
+    return (
+      <article className="Book">
+        <img className="Book__Image" src={book.image} alt={book.title} />
+        <header>
+          <h2 className="Book__Title">{book.title}</h2>
+        </header>
+      </article>
+    );
   }
 }
 
