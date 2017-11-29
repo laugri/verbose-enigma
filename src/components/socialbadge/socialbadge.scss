@@ -1,0 +1,29 @@
+@import 'style/_colors.scss';
+
+.SocialBadge {
+  background-color: $grey;
+  color: white;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  font-size: 12px;
+  line-height: 1;
+  text-transform: uppercase;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  &--blue {
+    background-color: $blue;
+  }
+
+  &--red {
+    background-color: $red;
+  }
+
+  &--green {
+    background-color: $green;
+  }
+}
